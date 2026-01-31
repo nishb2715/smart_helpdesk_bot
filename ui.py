@@ -60,7 +60,8 @@ if user_input:
 
     # Bot response
     with st.spinner("Analyzing your issue..."):
-        response = st.session_state.chain.run(user_query=user_input)
+        from router import route_query
+        response = route_query(user_input)
 
     st.session_state.messages.append(
         {"role": "assistant", "content": response}
